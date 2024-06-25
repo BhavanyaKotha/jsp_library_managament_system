@@ -1,3 +1,5 @@
+CREATE DATABASE jsp_library_managament_system
+use jsp_library_managament_system;
 CREATE TABLE student (
     Sid INT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
