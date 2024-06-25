@@ -1,0 +1,38 @@
+CREATE TABLE student (
+    Sid INT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    roll_no VARCHAR(10) NOT NULL,
+    phno BIGINT NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    gmail_id VARCHAR(50) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    year_of_joining YEAR NOT NULL,
+    year_of_ending YEAR
+);
+CREATE TABLE books (
+    book_id INT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    author VARCHAR(50) NOT NULL,
+    edition VARCHAR(20),
+    department VARCHAR(50),
+    quantity INT NOT NULL
+);
+
+CREATE TABLE admin (
+    aid INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    phno BIGINT NOT NULL,
+    gmail VARCHAR(50) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE books_transactions (
+    trans_id INT PRIMARY KEY AUTO_INCREMENT,
+    book_id INT,
+    issued_on DATE NOT NULL,
+    ends_on DATE NOT NULL,
+    remarks ENUM('issued', 'returned') NOT NULL,
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+);
